@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import {View, Text, StyleSheet, TextInput, TouchableHighlight} from 'react-native';
 
 
-getLocName = (lat, lng) => {
-	
-}
-
-
 getJson = (country) => {
-//    let username = name.toLowerCase().trim();
     country = country.replace(" ", "-")
     console.log(country)
     const URL = `https://api.covid19api.com/total/country/${country}`;
@@ -28,7 +22,6 @@ export default class FirstView extends Component {
         newCases: '',
         newDeaths: '',
         newRecovered: '',
-        error: false
       }
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -56,14 +49,9 @@ export default class FirstView extends Component {
         }
       );
     }
+    
   render() {
-    let showErr = (
-      this.state.error ?
-      <Text>
-        {this.state.error}
-      </Text> :
-      <View></View>
-    );
+
     return (
       <View style={styles.main}>
         <Text style={styles.title}>Enter Country Name</Text>
