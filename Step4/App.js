@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import {View, Text, StyleSheet, TextInput, TouchableHighlight} from 'react-native';
 
-
 getJson = (country) => {
     country = country.replace(" ", "-")
     console.log(country)
     const URL = `https://api.covid19api.com/total/country/${country}`;
-    return fetch(URL)
-            .then((res) => res.json());
+    return fetch(URL).then((res) => res.json());
 }
 
 
@@ -22,36 +20,36 @@ export default class FirstView extends Component {
         newCases: '',
         newDeaths: '',
         newRecovered: '',
+        error: false
       }
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(e) {
-      this.setState({
-        country: e.nativeEvent.text
-      });
-    }
+  handleChange(e) {
+    this.setState({
+      country: e.nativeEvent.text
+    });
+  }
 
-    handleSubmit() {
-      getJson(this.state.country)
-        .then((res) => {            
-          this.setState({
-            totalCases: res[res.length - 1]['Confirmed'],   
-            totalRecovered: res[res.length - 1]['Recovered'],
-            totalDeaths: res[res.length - 1]['Deaths'] 
-          });
-          this.setState({
-            newCases: parseInt(res[res.length - 1]['Confirmed']) - parseInt(res[res.length - 2]['Confirmed']), 
-            newDeaths: parseInt(res[res.length - 1]['Deaths']) - parseInt(res[res.length - 2]['Deaths']),
-            newRecovered: parseInt(res[res.length - 1]['Recovered']) - parseInt(res[res.length - 2]['Recovered']),
-          });
-        }
-      );
-    }
-    
+  handleSubmit() {
+    getJson(this.state.country)
+      .then((res) => {            
+        this.setState({
+          totalCases: res[res.length - 1]['Confirmed'],   
+          totalRecovered: res[res.length - 1]['Recovered'],
+          totalDeaths: res[res.length - 1]['Deaths'] 
+        });
+        this.setState({
+          newCases: parseInt(res[res.length - 1]['Confirmed']) - parseInt(res[res.length - 2]['Confirmed']), 
+          newDeaths: parseInt(res[res.length - 1]['Deaths']) - parseInt(res[res.length - 2]['Deaths']),
+          newRecovered: parseInt(res[res.length - 1]['Recovered']) - parseInt(res[res.length - 2]['Recovered']),
+        });
+      }
+    );
+  }
+
   render() {
-
     return (
       <View style={styles.main}>
         <Text style={styles.title}>Enter Country Name</Text>
@@ -75,7 +73,6 @@ export default class FirstView extends Component {
         <Text style={styles.result}>Total Cases: {this.state.totalCases} </Text>
         <Text style={styles.result}>Total Deaths: {this.state.totalDeaths} </Text>
         <Text style={styles.result}>Total Recovered Cases: {this.state.totalRecovered} </Text>
-            {showErr}
       </View>
     )
   }
