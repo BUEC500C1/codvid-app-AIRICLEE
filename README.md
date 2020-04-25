@@ -7,6 +7,7 @@
 
 **Youtube URL: https://youtu.be/_sH6QbKxKbY**
 
+**All the code above from step 1 to 5 can be run successfully in Android Emulator and my own android phone.**
 
 ## Step 1 & 2
 Setup React Enviroment and run Helloworld tutorials.
@@ -49,6 +50,4 @@ Combine Step 3 and Step 4 to realize the function that display each country's st
 ![image](https://github.com/BUEC500C1/codvid-app-AIRICLEE/blob/master/Step5/res04.png)
 
 ![image](https://github.com/BUEC500C1/codvid-app-AIRICLEE/blob/master/Step5/res05.png)
-
-All the code above from step 1 to 5 can be run successfully in Android Emulator and my own android phone.
 
