@@ -5,6 +5,8 @@
 - Step 4:  Exercise the CODVID-19 API (Documentation using postman) and display the data in application as text. 
 - Step 5:  Overlay the data on the maps.
 
+**Reactpro04 is the final project, and users can replace App.js in this directory with each Step's App.js which can realize different function**
+
 **Youtube URL: https://youtu.be/_sH6QbKxKbY**
 
 **All the code above from step 1 to 5 can be run successfully in Android Emulator and my own android phone.**
